@@ -1,0 +1,17 @@
+{
+  "name": "@aaa-project/config",
+  "version": "0.0.1",
+  "description": "",
+  "dependencies": {
+    "zzzzz-last-dependencies": "github:AngelsProgram/zzzzz-last-dependency#install"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-config-next": "^14.2.7",
+    "postcss": "^8.4.41",
+    "prettier": "^3.3.3",
+    "tailwindcss": "^3.4.10",
+    "typescript": "^5.5.4",
+    "zzzzz-last-devdependencies": "github:AngelsProgram/zzzzz-last-dependency#install"
+  }
+}
