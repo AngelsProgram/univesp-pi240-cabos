@@ -1,6 +1,8 @@
 import "#/styles/header.css";
 import Link from "next/link";
 
+import Logged from "./logged";
+
 export default function Header() {
   return (
     <header>
@@ -16,7 +18,7 @@ export default function Header() {
             <Link href="/table">Tabela</Link>
           </li>
           <li>
-            <Link href="/login">Login</Link>
+            <Logged />
           </li>
         </ul>
       </nav>
