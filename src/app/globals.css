@@ -1,0 +1,26 @@
+div.menu--container {
+  display: flex;
+  flex-direction: column;
+  background-color: #d3d3d3;
+  padding: 50px;
+  border-radius: 10px;
+  gap: 15px;
+
+  div.menu--descricao {
+    display: flex;
+    gap: 70px;
+    justify-content: space-around;
+
+    div.element__label {
+      font-size: 1.25rem;
+      font-weight: bold;
+    }
+  }
+}
+
+main {
+  min-height: 100vh; /* Garante que o conteúdo principal ocupe a altura total da janela */
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+}
