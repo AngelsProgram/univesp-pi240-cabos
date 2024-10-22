@@ -15,6 +15,9 @@ export default function Header() {
             <Link href="/admin">Admin</Link>
           </li>
           <li>
+            <Link href="/cadastro">Cadastro</Link>
+          </li>
+          <li>
             <Link href="/table">Tabela</Link>
           </li>
           <li>
