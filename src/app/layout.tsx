@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { Analytics } from "@vercel/analytics/react"
+
+import { Analytics } from "@vercel/analytics/react";
 
 import "./globals.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -29,6 +30,7 @@ export default async function RootLayout({
         <body className={inter.className}>
           <Header />
           {children}
+          <Analytics />
         </body>
       </html>
     </SessionProvider>
