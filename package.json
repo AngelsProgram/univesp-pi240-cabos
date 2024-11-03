@@ -12,6 +12,7 @@
     "aaa-config"
   ],
   "dependencies": {
+    "@prisma/client": "^5.21.1",
     "@vercel/analytics": "^1.3.2",
     "bootstrap": "^5.3.3",
     "next": "14.2.7",
@@ -27,6 +28,7 @@
     "@types/node": "^22.5.1",
     "@types/react": "^18.3.4",
     "@types/react-dom": "^18.3.0",
+    "prisma": "^5.21.1",
     "zzzzz-last-devdependencies": "github:AngelsProgram/zzzzz-last-dependency#install"
   }
 }
