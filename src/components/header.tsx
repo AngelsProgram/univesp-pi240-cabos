@@ -18,7 +18,7 @@ export default function Header() {
             <Link href="/cadastro">Cadastro</Link>
           </li>
           <li>
-            <Link href="/table">Tabela</Link>
+            <Link href="/tabela">Tabela</Link>
           </li>
           <li>
             <Logged />
