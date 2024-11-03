@@ -7,7 +7,6 @@ import Button from "react-bootstrap/Button";
 
 import { useForm, SubmitHandler } from "react-hook-form";
 
-import Swal from "sweetalert2";
 import { ModalError, ModalSuccess } from "./modal";
 
 import { insertProduto } from "./action";
