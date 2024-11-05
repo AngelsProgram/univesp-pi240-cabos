@@ -1,0 +1,14 @@
+Coluna 1 = Index da sequência do BD
+Coluna 2 = Nome do produto para venda
+Coluna 3 = Cor do cabo
+Coluna 4 = Raio mínimo de dobra dentro do conduíte
+Coluna 5 = Espessura da parede de isolação
+Coluna 6 = Tipo comercial
+Coluna 7 = Unidade de medida da bitola
+Coluna 8 = Bitola do cabo
+Coluna 9 = Preço de compra sem os impostos
+Coluna 10 = Preço de venda sem os impostos (divisão da coluna 9 por 0,6, ou seja 40% de margem)
+Coluna 11 = Preço de venda com os impostos (divisão de coluna 10 por 0,7275)
+Coluna 12 = Estoque do item em metros
+Coluna 13 = Valor do item em estoque
+Coluna 14 = Acumulado do estoque (soma sempre com o item acima)
