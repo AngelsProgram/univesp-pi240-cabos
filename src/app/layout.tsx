@@ -11,6 +11,8 @@ import { getServerSession } from "next-auth";
 
 import Header from "#/components/header";
 
+import ContextCartProvider from "#/context/context-cart";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -26,13 +28,15 @@ export default async function RootLayout({
   const session = await getServerSession();
   return (
     <SessionProvider session={session}>
-      <html lang="en">
-        <body className={inter.className}>
-          <Header />
-          {children}
-          <Analytics />
-        </body>
-      </html>
+      <ContextCartProvider>
+        <html lang="en">
+          <body className={inter.className}>
+            <Header />
+            {children}
+            <Analytics />
+          </body>
+        </html>
+      </ContextCartProvider>
     </SessionProvider>
   );
 }

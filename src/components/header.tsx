@@ -20,6 +20,7 @@ export default function Header() {
           <li>
             <Link href="/tabela">Tabela</Link>
           </li>
+          <li><Link href="/cart">Carrinho</Link></li>
           <li>
             <Logged />
           </li>

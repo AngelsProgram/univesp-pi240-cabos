@@ -3,23 +3,12 @@ import type { Produto, Venda } from "@prisma/client";
 
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Button from "react-bootstrap/Button";
-import { FaCartPlus } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
 
-import Swal from "sweetalert2";
+import { modalDelete } from "#/modals/table";
 import { deleteProduto } from "./actions";
 
-function showConfirm(id: number) {
-  Swal.fire({
-    title: "Tem certeza que deseja deletar?",
-    showDenyButton: true,
-    confirmButtonText: "Sim",
-    denyButtonText: "Não",
-  }).then((result) => {
-    if (!result.isConfirmed) return;
-    deleteProduto(id);
-  });
-}
+import { ButtonAddCart } from "#/components/table/buttonAddCart"
 
 export const columnsD: ColumnDef<Produto, any>[] = [
   {
@@ -127,16 +116,18 @@ export const columnsD: ColumnDef<Produto, any>[] = [
     cell: (info) => {
       return (
         <ButtonGroup>
-          <Button variant="success">
-            <FaCartPlus />
-          </Button>
+          <ButtonAddCart info={info} />
           <Button
             variant="danger"
-            onClick={() => showConfirm(info.row.original.id)}
+            onClick={async () => {
+              const confirm = await modalDelete.fire();
+              if (!confirm.isConfirmed) return;
+              deleteProduto(info?.row?.original?.id);
+            }}
           >
             <MdDeleteForever />
           </Button>
-        </ButtonGroup>
+        </ButtonGroup >
       );
     },
   },
