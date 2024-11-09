@@ -25,3 +25,5 @@ E então os próximos uso basta dar o comando: `npm start`
 ## Deploys
 
 ## Analytics
+
+Vercel
