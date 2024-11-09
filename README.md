@@ -24,6 +24,8 @@ E então os próximos uso basta dar o comando: `npm start`
 
 ## Deploys
 
+- 2024-11-09: Com modelo de banco de dados e tabelas
+
 ## Analytics
 
 Vercel
