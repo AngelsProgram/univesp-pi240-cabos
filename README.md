@@ -25,6 +25,7 @@ E então os próximos uso basta dar o comando: `npm start`
 ## Deploys
 
 - 2024-11-09: Com modelo de banco de dados e tabelas
+- 2024-11-10 14:44 Deploy das funções básicas, porém sem a função do admin
 
 ## Analytics
 
