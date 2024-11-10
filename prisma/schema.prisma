@@ -19,14 +19,15 @@ model Produto {
   precoVendaLiquido Float // preco_compra/0.6
   precoVendaImposto Float // preco_venda_liquido/0,7275
   quantidade        Int // em metros
-  Venda             Venda[]
+  venda             Venda[]
   atualizado        DateTime @updatedAt
 }
 
 model Venda {
-  id         Int      @id
+  id         Int      @id     @default(autoincrement())
   idProduto  Int
   fkProduto  Produto  @relation(fields: [idProduto], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  preco      Float
   quantidade Int
   total      Float // precoVenda * quantidade
   idCart     Int
@@ -34,7 +35,7 @@ model Venda {
 }
 
 model Cart {
-  id         Int      @id
+  id         Int      @id     @default(autoincrement())
   dia        DateTime
-  Venda      Venda[]
+  venda      Venda[]
 }

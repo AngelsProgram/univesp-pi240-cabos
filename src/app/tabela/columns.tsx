@@ -91,7 +91,7 @@ export const columnsD: ColumnDef<Produto, any>[] = [
     accessorKey: "quantidade",
     header: "quantidade (disponível/total)",
     cell: (info) => {
-      const vendas: Venda[] = info.row.original?.Venda;
+      const vendas: Venda[] = info.row.original?.venda;
       let vendido = vendas.reduce(
         (total, item) => (total += item.quantidade),
         0
@@ -104,7 +104,7 @@ export const columnsD: ColumnDef<Produto, any>[] = [
     },
   },
   {
-    accessorKey: "Venda",
+    accessorKey: "venda",
     cell: (info) => {
       info.getValue().map((item: Venda) => {
         return <div key={item.id}>{`${item.dia}: ${item.quantidade}`};</div>;

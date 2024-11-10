@@ -24,6 +24,10 @@ export const columns: ColumnDef<CartItem, any>[] = [
     // header: "quantidade",
   },
   {
+    header: "Total",
+    cell: (info) => info.row.original.produto.precoVendaImposto * info.row.original.quantidade
+  },
+  {
     header: "Remover",
     cell: (info) => <ButtonRemoveCart id={info.row.original.produto.id} qtd={info.row.original.quantidade} />
   }
