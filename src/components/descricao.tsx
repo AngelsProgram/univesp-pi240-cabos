@@ -1,6 +1,6 @@
 type Tprops = {
   label: string;
-  descricao: string;
+  descricao: string | JSX.Element;
 };
 
 export function Descricao(props: Tprops) {

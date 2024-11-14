@@ -34,6 +34,7 @@ export default function Page() {
     []
   );
 
+  // @ts-ignore
   const columns = React.useMemo<ColumnDef<Produto, any>[]>(() => columnsD, []);
 
   const [data, setData] = React.useState<Produto[]>([]);

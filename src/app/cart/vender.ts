@@ -9,13 +9,11 @@ export async function vender(cart:CartItem[]){
     const venda = cart.map(item=>({
         idProduto: item.produto.id,
         preco: item.produto.precoVendaImposto,
-        quantidade: parseInt(item.quantidade),
+        quantidade: item.quantidade,
         total: (item.produto.precoVendaImposto * item.quantidade),
     }));
 
     try {
-        console.log("Trying venda");
-
         const result = await prisma.cart.create({
             // include: { Venda: true },
             data:{

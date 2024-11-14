@@ -1,5 +1,10 @@
 import type { ColumnDef } from "@tanstack/react-table";
-import type { Produto, Venda } from "@prisma/client";
+
+import { Prisma } from '@prisma/client'
+
+type Produto = Prisma.ProdutoGetPayload<{ include: { venda: true } }>
+
+import type { Venda } from "@prisma/client";
 
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Button from "react-bootstrap/Button";
@@ -107,7 +112,7 @@ export const columnsD: ColumnDef<Produto, any>[] = [
     accessorKey: "venda",
     cell: (info) => {
       info.getValue().map((item: Venda) => {
-        return <div key={item.id}>{`${item.dia}: ${item.quantidade}`};</div>;
+        return <div key={item.id}>{`(${item.idCart}): ${item.quantidade}`};</div>;
       });
     },
   },
