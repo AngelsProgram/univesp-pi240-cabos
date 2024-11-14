@@ -1,9 +1,8 @@
 "use server";
-import { PrismaClient } from "@prisma/client";
+import { prisma } from "#/context/database";
+
 import type { Produto } from "@prisma/client";
 import type { SubmitHandler } from "react-hook-form";
-
-const prisma = new PrismaClient();
 
 export const insertProduto: SubmitHandler<Produto> = async function (
   data,

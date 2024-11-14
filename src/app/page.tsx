@@ -1,8 +1,6 @@
-import { PrismaClient } from '@prisma/client'
+import { prisma } from "#/context/database";
 
 import { Descricao } from "#/components/descricao";
-
-const prisma = new PrismaClient();
 
 const conn_t = <span style={{ color: "green" }}>Connected</span>;
 const conn_f = <span style={{ color: "red" }}>Disconnected</span>;
