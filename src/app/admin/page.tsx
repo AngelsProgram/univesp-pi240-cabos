@@ -1,15 +1,21 @@
 "use client";
 import { useSession } from "next-auth/react";
 
+import { redirect } from "next/navigation";
+
 export default function Page() {
   const session = useSession();
 
-  return (
-    <main>
-      <h1>Session Status:</h1>
-      <div>
-        <pre>{JSON.stringify(session, null, 2)}</pre>
-      </div>
-    </main>
-  );
+  if (session.data?.user?.name !== "admin") {
+    return (
+      <main>
+        <h3>
+          Precisa estar logado como administrador!
+          <pre>{JSON.stringify(session, null, 2)}</pre>
+        </h3>
+      </main>
+    )
+  }
+
+  redirect("/admin-server");
 }

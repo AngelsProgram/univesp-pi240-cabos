@@ -17,7 +17,7 @@ export function ButtonAddCart({ info }: any) {
                     title: `Produto: ${info.row.original.nome}`,
                 });
                 if (confirm.isDenied) return;
-                const item = { produto: info.row.original, quantidade: confirm.value };
+                const item = { produto: info.row.original, quantidade: parseInt(confirm.value) };
                 cart.push(item);
             }}
         >
