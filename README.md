@@ -26,7 +26,8 @@ E então os próximos uso basta dar o comando: `npm start`
 
 - 2024-11-09: Com modelo de banco de dados e tabelas
 - 2024-11-10 14:44 Deploy das funções básicas, porém sem a função do admin
-
+- 2024-11-17 Fix problem with database and final deploy
+  
 ## Analytics
 
 Vercel
