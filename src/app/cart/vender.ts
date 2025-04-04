@@ -1,4 +1,5 @@
 "use server";
+import { revalidatePath } from "next/cache";
 import { prisma } from "#/context/database";
 
 import type {CartItem} from "#/context/context-cart";
@@ -19,8 +20,11 @@ export async function vender(cart:CartItem[]){
                 venda: { create: venda, },
              }
         });
-        console.log(result)
+        revalidatePath("/")
+        return result;
+
     } catch (error) {
         console.error(error);
+        return undefined;
     }
 }

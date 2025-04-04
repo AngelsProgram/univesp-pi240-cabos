@@ -21,6 +21,11 @@ import {
 export default function Page() {
     const cart = React.useContext(ContextCart);
 
+    function checkvenda() {
+        const sucess = vender(cart);
+        if (!!sucess) { alert("Venda realizada com sucesso") } else { alert("Erro") }
+    }
+
     const table = useReactTable({
         data: cart,
         columns,
@@ -82,7 +87,7 @@ export default function Page() {
                 <div className="h-2" />
                 <hr />
                 <div><strong>Total:</strong> {cart.reduce((total, item) => { return total + (item.produto.precoVendaImposto * item.quantidade) }, 0)}</div>
-                <button onClick={() => vender(cart)}>Finalizar compra</button>
+                <button onClick={() => checkvenda()}>Finalizar compra</button>
             </div>
         </>
     )
