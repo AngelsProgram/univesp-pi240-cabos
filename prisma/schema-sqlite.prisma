@@ -9,9 +9,9 @@ datasource db {
 
 model Produto {
   id                Int      @id @default(autoincrement())
-  tipo              String
-  nome              String
-  cor               String
+  tipo              String   @db.VarChar(30)
+  nome              String   @db.VarChar(255)
+  cor               String   @db.VarChar(30)
   raio              Float
   isolacao          Int
   bitola            Float
