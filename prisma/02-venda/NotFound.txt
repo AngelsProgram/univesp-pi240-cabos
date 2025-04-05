@@ -1,0 +1,39 @@
+Laranja - 0.13
+Preto - 70
+Preto - 6
+Amarelo - 0.35
+Not Found: Preto - 70
+Not Found: Amarelo - 0.35
+Not Found: Preto - 70
+Not Found: Vermelho - 0.5
+Not Found: Preto - 6
+Not Found: Amarelo - 0.35
+Not Found: Preto - 6
+Not Found: Amarelo - 0.35
+Not Found: Vermelho - 0.5
+Not Found: Laranja - 0.13
+Not Found: Preto - 4
+Not Found: Amarelo - 0.35
+Not Found: Preto - 4
+Not Found: Amarelo - 0.35
+Not Found: Preto - 4
+Not Found: Vermelho - 0.5
+Not Found: Vermelho - 90
+Not Found: Preto - 6
+Not Found: Vermelho - 0.5
+Not Found: Preto - 70
+Not Found: Laranja - 0.13
+Not Found: Preto - 1.5
+Not Found: Amarelo - 0.35
+Not Found: Vermelho - 0.5
+Not Found: Amarelo - 0.35
+Not Found: Laranja - 0.13
+Not Found: Vermelho - 0.5
+Not Found: Laranja - 0.13
+Not Found: Preto - 1.5
+Not Found: Preto - 6
+Not Found: Laranja - 0.13
+Not Found: Vermelho - 90
+Not Found: Preto - 70
+Not Found: Amarelo - 0.35
+Not Found: Preto - 70
