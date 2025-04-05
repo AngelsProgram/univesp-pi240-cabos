@@ -7,6 +7,24 @@ import {prisma} from "#/context/database";
 //     return group;
 // }, {});
 
+const cores = {
+    "Amarelo": "yellow",
+    "Azul": "blue",
+    "Branco": "white",
+    "Cinza": "gray",
+    "Laranja": "orange",
+    "Marrom": "brown",
+    "Preto": "black",
+    "Rosa": "pink",
+    "Verde": "green",
+    "Vermelho": "red",
+    "Violeta": "violet",
+    "Branco_Laranja": "#FFA460",
+    "Branco_Azul": "#82EEFD",
+    "Branco_Verde": "#E3F5E0",
+    "Branco_Marrom": "#C4A17E",
+}
+
 export async function vendasDia()
 {
     const vendas = await prisma.venda.findMany({ include: { fkCart: { select: { dia: true } }, fkProduto: { select: { nome: true } } }, });
@@ -31,7 +49,8 @@ export async function vendaProduto(){
     const result = Object.entries(grouped).map(([ídentifier, items])=>{
         if(!items) return {id: 0, label: 'empty', value: 0};
         const total = items.reduce((sum, item)=>sum+item.total, 0);
-        return { id: items[0].idProduto, label: ídentifier, value: total }
+        const obj = { id: items[0].idProduto, label: ídentifier, value: total, color: cores[items.at(0)?.fkProduto.cor]};
+        return obj;
     });
 
     return result;
