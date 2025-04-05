@@ -1,0 +1,30 @@
+import random
+import csv
+
+# Configuração
+num_dias = 60
+produtos = [f"Produto_{i}" for i in range(1, 103)]
+vendedores = ["Alexandre", "Matheus"]
+max_vendas_por_dia = 15
+min_vendas_por_dia = 1
+quantidade_min = 10
+quantidade_max = 300
+
+# Gerar dados
+dados = [["Dia", "Vendedor", "Produto", "Quantidade"]]
+for dia in range(1, num_dias + 1):
+    num_vendas = random.randint(min_vendas_por_dia, max_vendas_por_dia)
+    for _ in range(num_vendas):
+        vendedor = random.choice(vendedores)
+        num_produtos_venda = random.randint(1, len(produtos))
+        produtos_vendidos = random.sample(produtos, num_produtos_venda)
+        for produto in produtos_vendidos:
+            quantidade = random.randint(quantidade_min, quantidade_max)
+            dados.append([f"Dia_{dia}", vendedor, produto, quantidade])
+
+# Salvar em .csv
+with open("vendas_empresa.csv", mode="w", newline="", encoding="utf-8") as arquivo:
+    writer = csv.writer(arquivo)
+    writer.writerows(dados)
+
+print("Arquivo 'vendas_empresa.csv' criado com sucesso!")

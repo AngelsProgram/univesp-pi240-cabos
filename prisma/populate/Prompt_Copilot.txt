@@ -1,0 +1,1 @@
+Preciso de uma tabela com dados aleatórios de 60 dias de vendas de uma empresa que contém 16 produtos diferente, 2 vendedores. Cada dia deve ter entre 1 e 15 vendas, cada venda deve conter entre 1 e 16 dos produtos, cada venda é feita somente por 1 vendedor, as quantidades dos produtos variam entre 10 e 300 por venda. A tabela deve estar em .csv.

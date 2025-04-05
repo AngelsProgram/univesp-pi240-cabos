@@ -1,8 +1,6 @@
 import XLSX from 'xlsx';
-import * as Prisma from "@prisma/client";
 import { PrismaClient } from "@prisma/client";
-const Produto = Prisma.Produto;
-const workbook = XLSX.readFile("BD_Dados_Cabos.csv");
+const workbook = XLSX.readFile("prisma/db-dados-cabos.csv");
 const sheetname = workbook.SheetNames[0];
 const worksheet = workbook.Sheets[sheetname];
 /**
@@ -26,10 +24,16 @@ const prisma = new PrismaClient();
 
 jsa.forEach(async row => {
     try {
+        let nome = row['Nome_do_produto']
+            .replaceAll(row['Tipo'], "")
+            .replaceAll(row['Cor'], "")
+            .replaceAll(row['Bitola'].toString().replaceAll(".", "-"), "")
+            .replaceAll("__", "_");
+
         await prisma.produto.create({
             data: {
-                tipo: 'cabo',
-                nome: row['Nome_do_produto'],
+                tipo: row['Tipo'],
+                nome,
                 cor: row['Cor'],
                 raio: row['Raio_de_dobra'],
                 isolacao: row['Espessura_Isolacao'],

@@ -16,11 +16,32 @@ import { deleteProduto } from "./actions";
 import { ButtonAddCart } from "#/components/table/buttonAddCart"
 
 export const columnsD: ColumnDef<Produto, any>[] = [
+  // {
+  //   header: "test",
+  //   cell: (info) => (
+  //     <button onClick={() => console.log(info.row.original)}>Click</button>
+  //   ),
+  // },
   {
-    header: "test",
-    cell: (info) => (
-      <button onClick={() => console.log(info.row.original)}>Click</button>
-    ),
+    header: "Ações",
+    cell: (info) => {
+      return (
+        <ButtonGroup>
+          <ButtonAddCart info={info} />
+          <Button
+            variant="danger"
+            onClick={async () => {
+              const confirm = await modalDelete.fire();
+              if (!confirm.isConfirmed) return;
+              deleteProduto(info?.row?.original?.id);
+              window.location.reload();
+            }}
+          >
+            <MdDeleteForever />
+          </Button>
+        </ButtonGroup >
+      );
+    },
   },
   {
     accessorKey: "id",
@@ -114,26 +135,6 @@ export const columnsD: ColumnDef<Produto, any>[] = [
       info.getValue().map((item: Venda) => {
         return <div key={item.id}>{`(${item.idCart}): ${item.quantidade}`};</div>;
       });
-    },
-  },
-  {
-    header: "Ações",
-    cell: (info) => {
-      return (
-        <ButtonGroup>
-          <ButtonAddCart info={info} />
-          <Button
-            variant="danger"
-            onClick={async () => {
-              const confirm = await modalDelete.fire();
-              if (!confirm.isConfirmed) return;
-              deleteProduto(info?.row?.original?.id);
-            }}
-          >
-            <MdDeleteForever />
-          </Button>
-        </ButtonGroup >
-      );
     },
   },
 ];
