@@ -23,19 +23,7 @@ export default async function Page() {
 
   return (
     <div>
-      <LineChart
-        dataset={dataset_dia}
-        xAxis={[{ scaleType: "point", dataKey: "d", label: "Dias" }]}
-        yAxis={[{ label: "Quantidade", dataKey: "t" }]}
-        series={[{ dataKey: "t", label: "Vendas por dia" }]}
-        width={500}
-        height={300}
-      />
-      <PieChart
-        series={[{ data: dataset_produto, },]}
-        width={400}
-        height={200}
-      />
+      Filtros serão adicionados futuramente.
     </div>
   );
 }

@@ -1,5 +1,12 @@
 import {prisma} from "#/context/database";
 
+// const grouped = vendas.reduce((group, venda)=>{
+//     const p = venda.fkProduto.nome;
+//     if(group[p]==null) group[p] = [];
+//     group[p].push();
+//     return group;
+// }, {});
+
 export async function vendasDia()
 {
     const vendas = await prisma.venda.findMany({ include: { fkCart: { select: { dia: true } }, fkProduto: { select: { nome: true } } }, });
@@ -19,10 +26,13 @@ export async function vendasDia()
 }
 
 export async function vendaProduto(){
-    const vendas = await prisma.produto.findMany({include: {venda: {select: {quantidade: true}}}});
-    const porc = vendas.map(item=>{
-        const total = item.venda.reduce((previous, current)=>{previous+=current.quantidade;return previous;}, 0);
-        return {id:item.id, label:item.nome, value:total}
+    const vendas = await prisma.venda.findMany( { include: { fkCart: { select: { dia: true } }, fkProduto: true }, } );
+    const grouped = Object.groupBy(vendas, venda=>venda.fkProduto.nome);
+    const result = Object.entries(grouped).map(([ídentifier, items])=>{
+        if(!items) return {id: 0, label: 'empty', value: 0};
+        const total = items.reduce((sum, item)=>sum+item.total, 0);
+        return { id: items[0].idProduto, label: ídentifier, value: total }
     });
-    return porc;
+
+    return result;
 }
