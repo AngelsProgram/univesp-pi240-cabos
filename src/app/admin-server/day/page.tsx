@@ -2,7 +2,7 @@ import { LineChart } from '@mui/x-charts/LineChart';
 
 import { vendasDia } from "../getVendas";
 
-export default async function Page() {
+export default async function Page({ searchParams }: any) {
   const dataset_dia = await vendasDia();
 
   return (
