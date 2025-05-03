@@ -1,10 +1,5 @@
 import { getServerSession } from "next-auth";
 
-import { LineChart } from '@mui/x-charts/LineChart';
-import { PieChart } from "@mui/x-charts/PieChart";
-
-import { vendasDia, vendaProduto } from "./getVendas";
-
 export default async function Page() {
   const session = await getServerSession();
 
@@ -17,9 +12,6 @@ export default async function Page() {
       </main>
     )
   }
-
-  const dataset_dia = await vendasDia();
-  const dataset_produto = await vendaProduto();
 
   return (
     <div>

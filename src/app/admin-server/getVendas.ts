@@ -1,3 +1,5 @@
+"use server";
+
 import {prisma} from "#/context/database";
 
 // const grouped = vendas.reduce((group, venda)=>{
@@ -23,6 +25,12 @@ const cores = {
     "Branco_Azul": "#82EEFD",
     "Branco_Verde": "#E3F5E0",
     "Branco_Marrom": "#C4A17E",
+}
+
+export async function getProdutos(){
+    const query = await prisma.produto.groupBy({ by: "nome" });
+    const p = query.map(p=>p.nome);
+    return p;
 }
 
 export async function vendasDia()

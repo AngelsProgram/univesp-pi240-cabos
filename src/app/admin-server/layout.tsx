@@ -1,5 +1,9 @@
+import React from 'react';
 import Link from "next/link";
 import type { Metadata } from "next";
+
+import { getProdutos } from './getVendas';
+import Filters from './filters';
 
 export const metadata: Metadata = {
   title: "Sistema Cabos - Vendas",
@@ -10,6 +14,8 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const produtos = await getProdutos();
+
   return (
     <>
       <header>
@@ -20,7 +26,10 @@ export default async function RootLayout({
           </ul>
         </nav>
       </header>
-      {children}
+      <Filters produtos={produtos} />
+      <main>
+        {children}
+      </main>
     </>
   );
 }
