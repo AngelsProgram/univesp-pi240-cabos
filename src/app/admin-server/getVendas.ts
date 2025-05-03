@@ -9,7 +9,7 @@ import {prisma} from "#/context/database";
 //     return group;
 // }, {});
 
-const cores = {
+const cores: Record<string, string> = {
     "Amarelo": "yellow",
     "Azul": "blue",
     "Branco": "white",
@@ -51,14 +51,21 @@ export async function vendasDia()
     return dataset;
 }
 
+function getColor(ccc:string|undefined){
+    if(!ccc) return '#E7DDFF';
+    if(ccc in cores) return cores[ccc];
+    return '#E7DDFF';
+}
+
 export async function vendaProduto(){
     const vendas = await prisma.venda.findMany( { include: { fkCart: { select: { dia: true } }, fkProduto: true }, } );
     const grouped = Object.groupBy(vendas, venda=>venda.fkProduto.nome);
     const result = Object.entries(grouped).map(([ídentifier, items])=>{
         if(!items) return {id: 0, label: 'empty', value: 0};
         const total = items.reduce((sum, item)=>sum+item.total, 0);
-        const obj = { id: items[0].idProduto, label: ídentifier, value: total, color: cores[items.at(0)?.fkProduto.cor]};
-        return obj;
+        const color_key = items?.at(0)?.fkProduto?.cor;
+        const color = getColor(color_key)
+        return { id: items[0].idProduto, label: ídentifier, value: total, color };
     });
 
     return result;
