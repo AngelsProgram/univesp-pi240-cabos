@@ -6,10 +6,6 @@ import { columns } from "./columns";
 import { vender } from "./vender";
 
 import {
-    Column,
-    ColumnDef,
-    ColumnFiltersState,
-    RowData,
     flexRender,
     getCoreRowModel,
     getFilteredRowModel,
@@ -21,8 +17,8 @@ import {
 export default function Page() {
     const cart = React.useContext(ContextCart);
 
-    function checkvenda() {
-        const sucess = vender(cart);
+    async function checkvenda() {
+        const sucess = await vender(cart);
         if (!!sucess) { alert("Venda realizada com sucesso") } else { alert("Erro") }
     }
 

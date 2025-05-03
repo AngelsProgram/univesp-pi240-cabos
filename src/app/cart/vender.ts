@@ -1,10 +1,15 @@
 "use server";
+import { getServerSession } from "next-auth/next"
+
 import { revalidatePath } from "next/cache";
 import { prisma } from "#/context/database";
 
 import type {CartItem} from "#/context/context-cart";
 
 export async function vender(cart:CartItem[]){
+    const session = await getServerSession();
+    if(!session) return undefined;
+
     const venda = cart.map(item=>({
         idProduto: item.produto.id,
         preco: item.produto.precoVendaImposto,
