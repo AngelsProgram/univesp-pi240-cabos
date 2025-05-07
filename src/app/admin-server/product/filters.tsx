@@ -6,7 +6,6 @@ import { useRouter, usePathname, useSearchParams } from 'next/navigation'
 export default function Filters({ produtos }: { produtos: string[] }) {
     const router = useRouter();
     const pathname = usePathname();
-    const searchParams = useSearchParams();
 
     const [filter, setFilter] = React.useState("");
     const [selecteds, setSelecteds] = React.useState<string[]>([]);

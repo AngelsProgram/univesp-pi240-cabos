@@ -33,9 +33,17 @@ export async function getProdutos(){
     return p;
 }
 
-export async function vendasDia()
+function getdate(string:string){
+    const d = new Date(string);
+    return (d instanceof Date) &&!isNaN(d.getTime()) ? d : undefined;
+}
+
+export async function vendasDia(start:string, end:string)
 {
-    const vendas = await prisma.venda.findMany({ include: { fkCart: { select: { dia: true } }, fkProduto: { select: { nome: true } } }, });
+    const vendas = await prisma.venda.findMany({
+            include: { fkCart: { select: { dia: true } }, fkProduto: { select: { nome: true } } },
+            where: {fkCart: {dia: {gte: getdate(start), lte: getdate(end)}}}
+        });
 
     const grouped = vendas.reduce<Record<string, number>>((previous, current) => {
     const dia = current.fkCart.dia.toISOString().slice(0, 10);
