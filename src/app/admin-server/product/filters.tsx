@@ -20,7 +20,7 @@ export default function Filters({ produtos }: { produtos: string[] }) {
 
     return (
         <div>
-            <input type="search" onChange={(event) => setFilter(p => event.target.value)} />
+            Filtrar: <input type="search" onChange={(event) => setFilter(p => event.target.value)} />
             <select
                 // multiple
                 id="filter_products"
@@ -34,9 +34,9 @@ export default function Filters({ produtos }: { produtos: string[] }) {
                 {selecteds.filter(i => i.toLowerCase().includes(filter)).map(i => (<option key={i}>{i}</option>))}
             </select>
             <button onClick={onClick}>Atualizar filtros</button>
-            <pre>
+            {/* <pre>
                 {JSON.stringify(selecteds, null, 2)}
-            </pre>
+            </pre> */}
         </div>
     )
 }
