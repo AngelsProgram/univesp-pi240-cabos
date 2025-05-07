@@ -17,10 +17,9 @@ export default async function Home() {
     <main>
       <div className="menu--container">
         <Descricao label='"Database status' descricao={status ? conn_t : conn_f} />
-        <Descricao label="Página Inicial" descricao="Descrição das páginas." />
-        <Descricao label="Página Inicial" descricao="Descrição das páginas." />
+        <Descricao label="HOME" descricao="Página inicial: Descrição das páginas." />
         <Descricao label="Cadastro" descricao="Cadastro de novos itens." />
-        <Descricao label="Relatório" descricao="Tabela de equipamentos." />
+        <Descricao label="Tabela" descricao="Tabela de equipamentos." />
       </div>
     </main>
   );
